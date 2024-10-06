@@ -18,3 +18,10 @@ version_scheme = "semver2"
 version_provider = "scm"
 update_changelog_on_bump = true
 major_version_zero = true
+
+[tool.ruff]
+line-length=100
+[tool.ruff.lint]
+select = ["ALL"]
+[tool.ruff.lint.pydocstyle]
+convention = "google"
