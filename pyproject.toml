@@ -1,6 +1,6 @@
 [project]
 name = "globus-map"
-version = "0.1.0"
+version = "0.0.0"
 description = "Map that visualizes distance to nearest globus supermarket"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -10,3 +10,11 @@ dependencies = []
 dev = [
     "pre-commit>=4.0.0",
 ]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "semver2"
+version_provider = "scm"
+update_changelog_on_bump = true
+major_version_zero = true
