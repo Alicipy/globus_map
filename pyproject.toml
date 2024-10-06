@@ -1,7 +1,7 @@
 [project]
 name = "globus-map"
 version = "0.1.0"
-description = "Add your description here"
+description = "Map that visualizes distance to nearest globus supermarket"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
