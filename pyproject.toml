@@ -7,7 +7,9 @@ requires-python = ">=3.10"
 dependencies = [
     "geopandas>=1.0.1",
     "pandas>=2.2.3",
+    "panel>=1.5.2",
     "pyarrow>=17.0.0",
+    "pydeck>=0.9.1",
 ]
 
 [project.optional-dependencies]
