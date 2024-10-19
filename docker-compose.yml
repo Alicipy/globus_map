@@ -1,0 +1,5 @@
+services:
+  globus_map:
+    build: .
+    ports:
+      - "54721:54721"

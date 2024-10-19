@@ -1,0 +1,35 @@
+[project]
+name = "globus-map"
+version = "0.0.0"
+description = "Map that visualizes distance to nearest globus supermarket"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "geopandas>=1.0.1",
+    "nbconvert>=7.16.4",
+    "pandas>=2.2.3",
+    "panel>=1.5.2",
+    "pyarrow>=17.0.0",
+    "pydeck>=0.9.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "notebook>=7.2.2",
+    "pre-commit>=4.0.0",
+]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "semver2"
+version_provider = "scm"
+update_changelog_on_bump = true
+major_version_zero = true
+
+[tool.ruff]
+line-length=100
+[tool.ruff.lint]
+select = ["ALL"]
+[tool.ruff.lint.pydocstyle]
+convention = "google"
