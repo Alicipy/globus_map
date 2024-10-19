@@ -5,6 +5,16 @@ where the next globus supermarket is. This is due to the fact that i really
 love Leberkaesebroetchen for 1 Euro from globus and I wanted to know how far
 the next one is based on where people are living
 
+## Installation
+
+The simplest way do have working setup is to use ``docker-compose``:
+
+```sh
+docker-compose up --build
+```
+
+Afterwards, the server is available at ``http://localhost:54721``.
+
 ## Directory structure
 
 ```
