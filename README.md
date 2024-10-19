@@ -15,6 +15,31 @@ docker-compose up --build
 
 Afterwards, the server is available at ``http://localhost:54721``.
 
+## Development
+
+To develop , you need to install ``uv`` first:
+
+```
+pip install uv
+```
+
+Then, the easiest way is to ``sync`` with the development dependencies,
+and activate the virtual env
+
+```
+uv sync --extra dev
+. .venv/bin/activate
+```
+
+and install the ```pre-commit``` hooks:
+
+```
+pre-commit install
+```
+
+Now, you are ready to code! For details about ``uv`` usage, check
+[the uv documentation](https://docs.astral.sh/uv/)
+
 ## Directory structure
 
 ```
