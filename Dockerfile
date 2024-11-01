@@ -16,4 +16,4 @@ COPY apps/ ./apps/
 
 WORKDIR /app/apps
 
-CMD uv run panel serve --port $PORT 10_visualize_map.ipynb
+CMD uv run panel serve --global-loading-spinner --port $PORT 10_visualize_map.ipynb
