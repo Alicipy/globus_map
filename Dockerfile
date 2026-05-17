@@ -19,4 +19,4 @@ WORKDIR /app/apps
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD python -c "from urllib.request import urlopen; import os; urlopen(f'http://localhost:{os.environ[\"PORT\"]}/10_visualize_map', timeout=5)"
 
-CMD uv run panel serve --global-loading-spinner --port $PORT 10_visualize_map.ipynb
+CMD uv run panel serve --global-loading-spinner --websocket-compression-level 6 --port $PORT 10_visualize_map.ipynb
