@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.14-slim
 
 ENV PORT=54721
 ENV PYTHONUNBUFFERED=1
