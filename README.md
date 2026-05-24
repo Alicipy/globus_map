@@ -44,7 +44,7 @@ Now, you are ready to code! For details about ``uv`` usage, check
 
 ```
 .
-├── apps (real visualiziation apps like notebooks)
+├── apps (static web page that renders the map client-side)
 ├── data
 │   ├── external (data from external sources)
 │   ├── interim (data preprocessed but not ready for visualization yet)

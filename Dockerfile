@@ -1,19 +1,8 @@
-FROM python:3.12-slim
+FROM nginx:stable-alpine3.23-slim
 
-ENV PORT=54721
-ENV PYTHONUNBUFFERED=1
+COPY apps/nginx.conf /etc/nginx/conf.d/default.conf
+COPY apps/index.html apps/main.css apps/main.js /usr/share/nginx/html/
+COPY data/processed/deck.json /usr/share/nginx/html/data/processed/deck.json
 
-EXPOSE ${PORT}
-
-WORKDIR /app
-RUN pip install --no-cache-dir uv
-
-COPY pyproject.toml uv.lock ./
-RUN uv sync --no-cache-dir
-
-COPY data/processed/ ./data/processed/
-COPY apps/ ./apps/
-
-WORKDIR /app/apps
-
-CMD uv run panel serve --global-loading-spinner --port $PORT 10_visualize_map.ipynb
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD wget -q -O /dev/null http://localhost/healthz || exit 1

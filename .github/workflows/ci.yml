@@ -20,9 +20,5 @@ jobs:
         run: uv sync --all-extras --dev
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.1
-      - name: Execute visualization notebooks once
-        run: |
-          cd apps
-          uv run -- jupyter-nbconvert --execute --to python *.ipynb
       - name: Build container once
         uses: docker/build-push-action@v6

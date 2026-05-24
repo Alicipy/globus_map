@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Globus Map</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://unpkg.com/deck.gl@9/dist.min.js" crossorigin="anonymous"></script>
+    <script>
+      // @deck.gl/json overwrites window.deck; stash core and re-merge after it loads.
+      const deckCore = window.deck;
+    </script>
+    <script
+      src="https://unpkg.com/@deck.gl/json@9/dist.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.deck = { ...deckCore, ...window.deck };
+    </script>
+  </head>
+  <body>
+    <main>
+      <section id="map-pane" aria-label="Map">
+        <div id="deck-container"></div>
+        <div id="loading" role="status" aria-live="polite">Loading map…</div>
+        <div id="attribution">
+          ©
+          <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener"
+            >OpenStreetMap</a
+          >
+          contributors · ©
+          <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>
+        </div>
+      </section>
+      <aside id="text-pane" aria-label="About">
+        <header>
+          <h1>Globus Map</h1>
+          <nav class="tabs" role="tablist">
+            <button
+              class="tab is-active"
+              role="tab"
+              aria-selected="true"
+              aria-controls="tab-overview"
+              data-tab="overview"
+            >
+              Overview
+            </button>
+            <button
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tab-data"
+              data-tab="data"
+            >
+              Data
+            </button>
+          </nav>
+        </header>
+        <article id="tab-overview" class="tab-panel" role="tabpanel">
+          <p>
+            This interactive map provides a visual representation of the proximity of Globus
+            supermarkets to various communities across Germany. Each element of the map has been
+            thoughtfully designed to enhance user understanding of the distances involved.
+          </p>
+          <p>
+            The white dots on the map indicate the precise locations of Globus supermarkets,
+            serving as reference points for users to identify their proximity to these stores.
+            Surrounding these points are color-coded community polygons, which are shaded according
+            to the distance to the nearest Globus supermarket. A vibrant green hue signifies that a
+            community is situated close to a Globus store, while a deeper purple indicates a
+            greater distance.
+          </p>
+          <p>
+            As you hover over each community polygon, a tooltip appears, displaying key
+            information: the name of the community along with the calculated distance to the
+            nearest Globus supermarket. This distance is measured "as the crow flies", representing
+            the shortest path from the geographic center of the community to the nearest store
+            location.
+          </p>
+        </article>
+        <article id="tab-data" class="tab-panel" role="tabpanel" hidden>
+          <p>This map is based on two data sources.</p>
+          <p>
+            The geographic data is derived from the dataset titled
+            <a
+              href="https://gdz.bkg.bund.de/index.php/default/digitale-geodaten/verwaltungsgebiete/verwaltungsgebiete-1-5-000-000-stand-31-12-vg5000-12-31.html"
+              target="_blank"
+              rel="noopener"
+              >Verwaltungsgebiete 1:5 000 000, Stand 31.12. (VG5000 31.12.)</a
+            >, raised and copyright by © GeoBasis-DE / BKG (2024), which is freely available for
+            use.
+          </p>
+          <p>
+            Market information for Globus was extracted from the
+            <a href="https://www.globus.de/maerkte.php" target="_blank" rel="noopener"
+              >Globus Market location overview</a
+            >. I then utilized
+            <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener"
+              >Nominatim</a
+            >
+            from OpenStreetMap to manually search for the precise location of the markets. The OSM
+            data is shared under the
+            <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener"
+              >Open Data Commons Open Database License (ODbL)</a
+            >.
+          </p>
+          <p>
+            Map rendering uses
+            <a href="https://deck.gl" target="_blank" rel="noopener">deck.gl</a> (MIT licensed) and
+            <a href="https://carto.com/basemaps" target="_blank" rel="noopener">CARTO</a> light
+            basemap tiles.
+          </p>
+        </article>
+      </aside>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
