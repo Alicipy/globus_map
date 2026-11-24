@@ -1,4 +1,4 @@
-FROM nginxinc/nginx-unprivileged:1.31.7-alpine-slim@sha256:b94a56c52fd315bbd8f1f4368d64c25983351c978313e02feff2c0b35e856f2d
+FROM nginxinc/nginx-unprivileged:1.31.7-alpine-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
 
 COPY apps/nginx.conf /etc/nginx/conf.d/default.conf
 COPY apps/index.html apps/main.css apps/main.js /usr/share/nginx/html/
